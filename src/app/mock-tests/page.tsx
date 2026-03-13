@@ -101,6 +101,14 @@ export default function MockTestEnginePage() {
                 setStatus({ ...status, [nextQId]: "visited" });
             }
             setActiveQuestion(prev => prev + 1);
+        } else if (activeSection < MOCK_TEST_DATA.sections.length - 1) {
+            if (confirm("You have reached the end of this section. Do you want to submit it and proceed to the next section? You cannot return to this section.")) {
+                handleSectionChange(activeSection + 1);
+            }
+        } else {
+            if (confirm("You have reached the end of the test. Submit final answers?")) {
+                handleSubmit();
+            }
         }
     };
 
@@ -295,10 +303,13 @@ export default function MockTestEnginePage() {
                             </button>
                             <button
                                 onClick={handleNext}
-                                disabled={activeQuestion === currentSec.questions.length - 1}
-                                className="flex items-center gap-2 px-6 py-2 bg-indigo-600 disabled:opacity-50 hover:bg-indigo-700 text-white rounded-md font-medium transition-colors shadow-sm"
+                                className="flex items-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md font-medium transition-colors shadow-sm"
                             >
-                                Save & Next <ChevronRight className="w-4 h-4" />
+                                {activeQuestion === currentSec.questions.length - 1 ? (
+                                    activeSection === MOCK_TEST_DATA.sections.length - 1 ? <span>Submit Test</span> : <span>Next Section <ChevronRight className="w-4 h-4 inline" /></span>
+                                ) : (
+                                    <>Save & Next <ChevronRight className="w-4 h-4" /></>
+                                )}
                             </button>
                         </div>
                     </div>
