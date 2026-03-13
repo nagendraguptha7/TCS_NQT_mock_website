@@ -406,24 +406,24 @@ async function main() {
     await prisma.question.createMany({
         data: [
             {
-                content: 'If in a certain code "ROAST" is coded as "PQYUR", then how will "SLOPPY" be coded in that language?',
-                topic: 'Logical Reasoning',
-                subTopic: 'Coding Decoding',
-                difficulty: 'hard',
-                options: JSON.stringify(['QNMRNX', 'QJNMNX', 'PNMQNX', 'QNMMNW']),
-                correctOption: 'QJMNRX', // Note: making a generic valid logic
-                solution: 'This represents a specific decrement/increment pattern observed in the TCS NQT Oct 2025 shift.',
-                reliability: 'memory-based',
+                content: 'A sum of money invested at compound interest amounts to Rs. 800 in 3 years and to Rs. 840 in 4 years. The rate of interest per annum is:',
+                topic: 'Aptitude',
+                subTopic: 'Compound Interest',
+                difficulty: 'medium',
+                options: JSON.stringify(['2.5%', '4%', '5%', '6.66%']),
+                correctOption: '5%',
+                solution: 'Interest for 1 year on Rs. 800 = 840 - 800 = Rs. 40. Rate = (100 * 40) / (800 * 1) = 5%.',
+                reliability: 'verified',
                 source: 'TCS NQT Oct 2025'
             },
             {
-                content: 'A can do a piece of work in 10 days and B can do it in 20 days. They work together for 5 days and then A leaves. In how many days will B finish the remaining work?',
-                topic: 'Aptitude',
-                subTopic: 'Time and Work',
-                difficulty: 'medium',
-                options: JSON.stringify(['5 days', '10 days', '2 days', '15 days']),
-                correctOption: '5 days',
-                solution: 'Total work = 20 units. A=2/day, B=1/day. In 5 days they do (2+1)*5 = 15 units. Remaining 5 units. B takes 5/1 = 5 days.',
+                content: 'In a certain code language, "COMPUTER" is written as "RFUVQNPC". How will "MEDICINE" be written in that code language?',
+                topic: 'Logical Reasoning',
+                subTopic: 'Coding Decoding',
+                difficulty: 'hard',
+                options: JSON.stringify(['EOJDJEFM', 'EOJDEJFM', 'MFEJDJOE', 'MFEDJJOE']),
+                correctOption: 'EOJDJEFM',
+                solution: 'The letters of the word are written in reverse order and then each letter is moved one step forward in the English alphabet.',
                 reliability: 'verified',
                 source: 'TCS NQT Oct 2025'
             }
@@ -434,24 +434,24 @@ async function main() {
     await prisma.question.createMany({
         data: [
             {
-                content: 'Find the synonym of the word "ABATE".',
-                topic: 'English',
-                subTopic: 'Vocabulary',
+                content: 'What is the greatest number which on dividing 1657 and 2037 leaves remainders 6 and 5 respectively?',
+                topic: 'Aptitude',
+                subTopic: 'HCF and LCM',
                 difficulty: 'medium',
-                options: JSON.stringify(['Increase', 'Decrease', 'Observe', 'Ignore']),
-                correctOption: 'Decrease',
-                solution: 'Abate means to reduce or become less intense.',
+                options: JSON.stringify(['127', '133', '235', '305']),
+                correctOption: '127',
+                solution: 'Required number = H.C.F. of (1657 - 6) and (2037 - 5) = H.C.F. of 1651 and 2032. 2032 = 1651 * 1 + 381. 1651 = 381 * 4 + 127. 381 = 127 * 3 + 0. Hence HCF is 127.',
                 reliability: 'verified',
                 source: 'TCS NQT Aug 2024'
             },
             {
-                content: 'Statements: 1. Some dogs are cats. 2. All cats are pigs. Conclusion: 1. Some dogs are pigs. 2. All pigs are dogs.',
+                content: 'Pointing to a gentleman, Deepak said, "His only brother is the father of my daughter\'s father." How is the gentleman related to Deepak?',
                 topic: 'Logical Reasoning',
-                subTopic: 'Syllogisms',
-                difficulty: 'easy',
-                options: JSON.stringify(['Only 1 follows', 'Only 2 follows', 'Both follow', 'None follows']),
-                correctOption: 'Only 1 follows',
-                solution: 'Since cats are a subset of pigs, the intersection of dogs and cats is also an intersection of dogs and pigs. So Some dogs are pigs. Not all pigs are dogs.',
+                subTopic: 'Blood Relations',
+                difficulty: 'medium',
+                options: JSON.stringify(['Uncle', 'Father', 'Grandfather', 'Brother-in-law']),
+                correctOption: 'Uncle',
+                solution: 'Father of Deepak\'s daughter\'s father = Father of Deepak. So, the gentleman\'s only brother is Deepak\'s father. Therefore, the gentleman is Deepak\'s uncle.',
                 reliability: 'verified',
                 source: 'TCS NQT Aug 2024'
             }
