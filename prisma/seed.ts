@@ -67,6 +67,39 @@ async function main() {
                 solution: 'Let numbers be 3x, 4x, 5x. LCM = 60x = 2400 => x = 40. The numbers are 120, 160, 200. HCF is 40.',
                 reliability: 'verified',
                 source: 'TCS Base DB'
+            },
+            {
+                content: 'What is the probability of getting a sum 9 from two throws of a dice?',
+                topic: 'Aptitude',
+                subTopic: 'Probability',
+                difficulty: 'medium',
+                options: JSON.stringify(['1/6', '1/8', '1/9', '1/12']),
+                correctOption: '1/9',
+                solution: 'Total outcomes = 36. Favorable outcomes for sum 9 are (3,6), (4,5), (5,4), (6,3) = 4. Probability = 4/36 = 1/9.',
+                reliability: 'verified',
+                source: 'TCS Recent Pattern'
+            },
+            {
+                content: 'A can do a piece of work in 4 hours; B and C together can do it in 3 hours, while A and C together can do it in 2 hours. How long will B alone take to do it?',
+                topic: 'Aptitude',
+                subTopic: 'Time and Work',
+                difficulty: 'hard',
+                options: JSON.stringify(['8 hours', '10 hours', '12 hours', '24 hours']),
+                correctOption: '12 hours',
+                solution: 'A\'s 1 hr work = 1/4. (A+C)\'s 1 hr = 1/2. C\'s 1 hr = 1/2 - 1/4 = 1/4. (B+C)\'s 1 hr = 1/3. B\'s 1 hr = 1/3 - 1/4 = 1/12. B takes 12 hours.',
+                reliability: 'high',
+                source: 'TCS Advanced DB'
+            },
+            {
+                content: 'The average of 20 numbers is zero. Of them, at the most, how many may be greater than zero?',
+                topic: 'Aptitude',
+                subTopic: 'Averages',
+                difficulty: 'easy',
+                options: JSON.stringify(['0', '1', '10', '19']),
+                correctOption: '19',
+                solution: 'To make the average zero, the sum must be zero. We can have 19 positive numbers and 1 very large negative number that cancels them all out.',
+                reliability: 'verified',
+                source: 'TCS Quick Math'
             }
         ]
     })

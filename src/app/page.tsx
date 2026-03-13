@@ -69,8 +69,14 @@ export default function Home() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
+              href="/previous-papers"
+              className="flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg text-white border border-indigo-500/50 bg-indigo-500/10 hover:bg-indigo-500/20 transition-all"
+            >
+              Solve Previous Papers
+            </Link>
+            <Link
               href="/mock-tests"
-              className="flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg text-white border border-white/20 hover:bg-white/5 transition-all"
+              className="flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg text-white border border-white/20 hover:bg-white/5 transition-all hidden md:flex"
             >
               Take a Mock Test
             </Link>
