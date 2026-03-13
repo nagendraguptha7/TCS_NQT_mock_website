@@ -50,6 +50,53 @@ async function main() {
         }
     })
 
+    const q4 = await prisma.question.create({
+        data: {
+            content: 'Choose the correct synonym for "OBSTINATE".',
+            topic: 'Verbal Ability',
+            subTopic: 'Vocabulary',
+            difficulty: 'easy',
+            options: JSON.stringify(['Stubborn', 'Flexible', 'Docile', 'Compliant']),
+            correctOption: 'Stubborn',
+            solution: 'Obstinate means stubbornly refusing to change one\'s opinion or chosen course of action.',
+            reliability: 'verified',
+            source: 'TCS NQT Pattern'
+        }
+    })
+
+    const q5 = await prisma.question.create({
+        data: {
+            content: 'Identify the segment in the sentence which contains a grammatical error: "Neither of the two men were very strong."',
+            topic: 'English',
+            subTopic: 'Grammar',
+            difficulty: 'medium',
+            options: JSON.stringify(['Neither of', 'the two men', 'were', 'very strong']),
+            correctOption: 'were',
+            solution: '"Neither of" takes a singular verb. So it should be "was" instead of "were".',
+            reliability: 'verified',
+            source: 'TCS NQT Database'
+        }
+    })
+
+    const q6 = await prisma.question.create({
+        data: {
+            content: 'You are leading a project and a key team member falls ill two days before an important deadline. The client is strict about timelines. What is your immediate course of action?',
+            topic: 'Scenario-Based',
+            subTopic: 'Leadership',
+            difficulty: 'hard',
+            options: JSON.stringify([
+                'Inform the client immediately and ask for an extension.',
+                'Distribute the ill member\'s tasks among the rest of the team and work extra hours.',
+                'Do the ill member\'s work yourself while managing the team.',
+                'Tell the team member to work from home despite being ill.'
+            ]),
+            correctOption: 'Distribute the ill member\'s tasks among the rest of the team and work extra hours.',
+            solution: 'Distributing tasks and managing the load demonstrates proactive leadership and teamwork to meet the deadline without immediately compromising or making excuses.',
+            reliability: 'high',
+            source: 'TCS NQT Scenario Bank'
+        }
+    })
+
     console.log('Seeding finished.')
 }
 
