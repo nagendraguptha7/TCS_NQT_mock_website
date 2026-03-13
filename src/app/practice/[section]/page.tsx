@@ -4,6 +4,8 @@ import { ChevronLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import InteractiveQuizServer from "./InteractiveQuiz";
 
+export const dynamic = 'force-dynamic';
+
 const sectionToTopicMap: Record<string, string> = {
     aptitude: "Aptitude",
     reasoning: "Logical Reasoning",

@@ -4,6 +4,8 @@ import { ChevronLeft, BrainCircuit } from "lucide-react";
 import { notFound } from "next/navigation";
 import InteractiveQuizServer from "../../practice/[section]/InteractiveQuiz";
 
+export const dynamic = 'force-dynamic';
+
 export default async function PreviousPaperSolverPage({ params }: { params: Promise<{ source: string }> }) {
     const { source } = await params;
     const decodedSource = decodeURIComponent(source);
