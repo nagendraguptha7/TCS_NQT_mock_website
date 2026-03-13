@@ -1,0 +1,36 @@
+C:\Users\nagen\Desktop\tcsNQT\tcs-nqt\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:320
+        throw new PrismaClientInitializationError(
+              ^
+
+PrismaClientInitializationError: `PrismaClient` needs to be constructed with a non-empty, valid `PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at new t (C:\Users\nagen\Desktop\tcsNQT\tcs-nqt\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:320:15)
+    at <anonymous> (C:\Users\nagen\Desktop\tcsNQT\tcs-nqt\prisma\seed.ts:3:16)
+    at Object.<anonymous> (C:\Users\nagen\Desktop\tcsNQT\tcs-nqt\prisma\seed.ts:63:4)
+    at Module._compile (node:internal/modules/cjs/loader:1804:14)
+    at Object.transformer (C:\Users\nagen\Desktop\tcsNQT\tcs-nqt\node_modules\tsx\dist\register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1525:32)
+    at Module._load (node:internal/modules/cjs/loader:1327:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:339:3) {
+  clientVersion: '7.5.0',
+  errorCode: undefined,
+  retryable: undefined
+}
+
+Node.js v24.13.1
