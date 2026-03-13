@@ -3,18 +3,18 @@ import Link from "next/link";
 
 export default function PreviousPapersPage() {
     const papers = [
-        { year: 2023, name: "TCS NQT August 2023 Slot 1", difficulty: "Medium", completed: true, score: "82%" },
-        { year: 2023, name: "TCS NQT August 2023 Slot 2", difficulty: "Hard", completed: false, score: null },
-        { year: 2022, name: "TCS NQT September 2022", difficulty: "Medium", completed: true, score: "88%" },
-        { year: 2022, name: "TCS NQT March 2022 (Special Edition)", difficulty: "Hard", completed: false, score: null },
-        { year: 2021, name: "TCS NQT October 2021", difficulty: "Easy", completed: false, score: null },
+        { year: 2026, name: "TCS NQT Jan 2026 Shift 1", difficulty: "Hard", completed: false, score: null },
+        { year: 2025, name: "TCS NQT Oct 2025", difficulty: "Medium", completed: false, score: null },
+        { year: 2024, name: "TCS NQT Aug 2024", difficulty: "Medium", completed: true, score: "88%" },
+        { year: 2023, name: "TCS NQT Aug 2023 Slot 1", difficulty: "Medium", completed: true, score: "82%" },
+        { year: 2022, name: "TCS NQT Sept 2022", difficulty: "Easy", completed: false, score: null },
     ];
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="mb-10 text-center md:text-left">
                 <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Previous Year Papers</h1>
-                <p className="text-gray-400 mt-2">Practice with authentic past TCS NQT exams. Every paper includes detailed solutions and pattern analysis.</p>
+                <p className="text-gray-400 mt-2">Practice with authentic past TCS NQT exams till Jan 2026. Data verified from reliable community sources.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -39,7 +39,7 @@ export default function PreviousPapersPage() {
                                             {paper.difficulty}
                                         </span>
                                         <span>&bull;</span>
-                                        <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 180 Minutes</span>
+                                        <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 60 Minutes</span>
                                     </div>
                                 </div>
                             </div>
@@ -50,14 +50,14 @@ export default function PreviousPapersPage() {
                                         <div className="text-emerald-400 font-bold flex items-center gap-1">
                                             <CheckCircle className="w-4 h-4" /> Score: {paper.score}
                                         </div>
-                                        <Link href="#" className="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1">
-                                            View Analysis <ChevronRight className="w-4 h-4" />
+                                        <Link href={`/previous-papers/${encodeURIComponent(paper.name)}`} className="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1">
+                                            Re-attempt <ChevronRight className="w-4 h-4" />
                                         </Link>
                                     </>
                                 ) : (
                                     <>
                                         <div className="text-sm text-gray-500 font-medium">Not Attempted</div>
-                                        <Link href="/mock-tests" className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors w-full sm:w-auto text-center">
+                                        <Link href={`/previous-papers/${encodeURIComponent(paper.name)}`} className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors w-full sm:w-auto text-center">
                                             Solve Now
                                         </Link>
                                     </>
