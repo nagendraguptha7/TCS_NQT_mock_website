@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import InteractiveQuizServer from "./InteractiveQuiz";
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const sectionToTopicMap: Record<string, string> = {
     aptitude: "Aptitude",

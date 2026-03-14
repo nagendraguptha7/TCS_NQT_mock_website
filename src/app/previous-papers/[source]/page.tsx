@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import InteractiveQuizServer from "../../practice/[section]/InteractiveQuiz";
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Disable all caching
 
 export default async function PreviousPaperSolverPage({ params }: { params: Promise<{ source: string }> }) {
     const { source } = await params;
@@ -41,7 +42,8 @@ export default async function PreviousPaperSolverPage({ params }: { params: Prom
                     <ChevronLeft className="w-4 h-4 mr-1" /> Back to Papers
                 </Link>
                 <h1 className="text-3xl font-bold mb-2">{decodedSource} Real Paper</h1>
-                <p className="text-gray-400">Solve the actual questions asked in this specific slot based on candidate memory.</p>
+                <p className="text-gray-400">Solve the exact questions asked in this specific slot based on candidate memory.</p>
+                <p className="text-emerald-500 font-bold mt-2 pt-2 border-t border-white/10">Showing {questions.length} Verified Questions</p>
             </div>
 
             <InteractiveQuizServer
