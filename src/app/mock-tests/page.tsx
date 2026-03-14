@@ -5,31 +5,45 @@ import { Timer, AlertCircle, CheckSquare, Brain, Target, ChevronRight, ChevronLe
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-// Mock Data for MVP
+// Mock Data for MVP - Synced to August 2024 Historic Paper
 const MOCK_TEST_DATA = {
     id: "nqt-2024-mock-1",
-    title: "TCS NQT Full Length Mock Test 1",
+    title: "TCS NQT Full Length Mock Test (Aug 2024 Base)",
     durationMinutes: 120, // 2 hours
     sections: [
         {
             id: "s1",
-            name: "Part A - Foundation Section",
-            durationMinutes: 60,
+            name: "Part A - Foundation Aptitude",
+            durationMinutes: 40,
             questions: [
-                { id: "q1", type: "aptitude", text: "If the simple interest on a certain sum of money for 3 years at 5% per annum is Rs. 1200, find the compound interest on the same sum for the same period and at the same rate.", options: ["Rs. 1261", "Rs. 1265", "Rs. 1300", "Rs. 1320"], marks: 1, negative: 0.33 },
-                { id: "q2", type: "reasoning", text: "In a certain code language, 'COMPUTER' is written as 'RFUVQNPC'. How will 'MEDICINE' be written in that code language?", options: ["MFEDJJOE", "EOJDEJFM", "MFEJDJOE", "EOJDJEFM"], marks: 1, negative: 0.33 },
-                { id: "q3", type: "verbal", text: "Choose the correct synonym for 'OBSTINATE'.", options: ["Stubborn", "Flexible", "Docile", "Compliant"], marks: 1, negative: 0.33 },
-                { id: "q4", type: "english", text: "Identify the segment in the sentence which contains a grammatical error: 'Neither of the two men were very strong.'", options: ["Neither of", "the two men", "were", "very strong"], marks: 1, negative: 0.33 },
+                { id: "q1", type: "aptitude", text: "What is the greatest number which on dividing 1657 and 2037 leaves remainders 6 and 5 respectively?", options: ["127", "133", "235", "305"], marks: 1, negative: 0.33 },
+                { id: "q2", type: "aptitude", text: "A milkman mixes 20 litres of water with 80 litres of milk. After selling one-fourth of this mixture, he adds water to replenish the quantity that he had sold. What is the current proportion of water to milk?", options: ["2:3", "1:2", "3:4", "9:11"], marks: 1, negative: 0.33 },
+                { id: "q3", type: "aptitude", text: "The average weight of 8 persons increases by 2.5 kg when a new person comes in place of one of them weighing 65 kg. What might be the weight of the new person?", options: ["76 kg", "76.5 kg", "85 kg", "80 kg"], marks: 1, negative: 0.33 },
+                { id: "q4", type: "aptitude", text: "If the selling price of 50 articles is equal to the cost price of 40 articles, then the loss or gain percent is:", options: ["20% loss", "20% gain", "25% loss", "25% gain"], marks: 1, negative: 0.33 }
             ]
         },
         {
             id: "s2",
-            name: "Part B - Advanced Section",
-            durationMinutes: 60,
+            name: "Part B - Logical & Verbal",
+            durationMinutes: 40,
             questions: [
-                { id: "q5", type: "advanced-aptitude", text: "A can do a piece of work in 10 days, B in 15 days. They work together for 5 days, the rest of the work is finished by C in 2 days. If they get Rs. 3000 for the whole work, what is the share of C?", options: ["Rs. 500", "Rs. 1000", "Rs. 1500", "Rs. 2000"], marks: 2, negative: 0.5 },
-                { id: "q6", type: "advanced-reasoning", text: "Eight friends A, B, C, D, E, F, G and H are sitting around a circular table facing the centre. A is sitting third to the left of C... (Assume full text). Who is sitting to the immediate right of F?", options: ["A", "B", "C", "D"], marks: 2, negative: 0.5 },
-                { id: "q7", type: "advanced-coding", text: "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.", options: ["O(N) Time Complexity", "O(N^2) Time Complexity", "O(log N) Time Complexity", "O(1) Time Complexity"], marks: 3, negative: 0 },
+                { id: "q5", type: "reasoning", text: "Statements: 1. Some dogs are cats. 2. All cats are pigs.<br/>Conclusion: 1. Some dogs are pigs. 2. All pigs are dogs.", options: ["Only 1 follows", "Only 2 follows", "Both follow", "None follows"], marks: 1, negative: 0.33 },
+                { id: "q6", type: "reasoning", text: "Pointing to a gentleman, Deepak said, 'His only brother is the father of my daughter\\'s father.' How is the gentleman related to Deepak?", options: ["Uncle", "Father", "Grandfather", "Brother-in-law"], marks: 1, negative: 0.33 },
+                { id: "q7", type: "reasoning", text: "Look at this series: 36, 34, 30, 28, 24, ... What number should come next?", options: ["20", "22", "23", "26"], marks: 1, negative: 0.33 },
+                { id: "q8", type: "reasoning", text: "If A + B means A is the mother of B; A - B means A is the brother of B; A % B means A is the father of B and A x B means A is the sister of B, which of the following shows that P is the maternal uncle of Q?", options: ["Q - N + M x P", "P + S x N - Q", "P - M + N x Q", "Q - S % P"], marks: 1, negative: 0.33 },
+                { id: "q9", type: "english", text: "Find the synonym of the word 'ABATE'.", options: ["Increase", "Decrease", "Observe", "Ignore"], marks: 1, negative: 0.33 },
+                { id: "q10", type: "english", text: "Choose the correct meaning of the idiom: 'To spill the beans'", options: ["To drop something", "To reveal a secret", "To be clumsy", "To cook vegetables"], marks: 1, negative: 0.33 },
+                { id: "q11", type: "english", text: "Select the segment which has an error: 'Scarcely had the minister started his speech than the crowd started protesting.'", options: ["Scarcely had", "the minister started", "his speech than", "the crowd started protesting"], marks: 1, negative: 0.33 },
+                { id: "q12", type: "english", text: "Fill in the blank: The manager was ________ with the employees who were constantly late.", options: ["Irritated", "Sympathetic", "Oblivious", "Elated"], marks: 1, negative: 0.33 }
+            ]
+        },
+        {
+            id: "s3",
+            name: "Part C - Advanced Quantitative & Coding",
+            durationMinutes: 40,
+            questions: [
+                { id: "q13", type: "advanced-aptitude", text: "A bag contains 6 black and 8 white balls. One ball is drawn at random. What is the probability that the ball drawn is white?", options: ["3/4", "4/7", "1/8", "3/7"], marks: 2, negative: 0.5 },
+                { id: "q14", type: "advanced-coding", text: "What will be the output of the following C code snippet?<br/><br/><code>int main() {<br/>  int i = 5;<br/>  printf(\"%d %d %d\", i++, i, ++i);<br/>  return 0;<br/>}</code><br/><br/>(Assume GCC compiler right-to-left evaluation)", options: ["5 6 7", "6 6 7", "6 7 7", "Compiler Dependent"], marks: 3, negative: 0 },
             ]
         }
     ]

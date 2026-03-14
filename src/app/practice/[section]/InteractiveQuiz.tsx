@@ -17,6 +17,8 @@ export default function InteractiveQuizServer({
     const [selectedOptions, setSelectedOptions] = useState<Record<number, string>>({});
     const [showSolution, setShowSolution] = useState<Record<number, boolean>>({});
 
+    console.log("InteractiveQuizServer Received Props Length:", questions.length, "Section:", sectionTitle);
+
     if (questions.length === 0) {
         return (
             <div className="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
@@ -28,7 +30,20 @@ export default function InteractiveQuizServer({
     }
 
     const q = questions[currentIndex];
-    const options: string[] = q.options ? JSON.parse(q.options) : [];
+
+    let options: string[] = [];
+    if (q.options) {
+        if (typeof q.options === 'string') {
+            try {
+                options = JSON.parse(q.options);
+            } catch (e) {
+                console.error("Failed to parse options:", q.options);
+                options = [];
+            }
+        } else if (Array.isArray(q.options)) {
+            options = q.options;
+        }
+    }
     const userAnswer = selectedOptions[q.id];
     const isAnswered = !!userAnswer;
     const isCorrect = isAnswered && userAnswer === q.correctOption;
